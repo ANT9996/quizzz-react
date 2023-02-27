@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import ButtonBack from "../../components/ButtonBack/ButtonBack";
 import axios from "axios";
@@ -17,12 +17,12 @@ const FullQuiz = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [showCorrect, setShowCorrect] = useState<boolean>(false)
   const {id} = useParams()
-  const fetchFullQuiz = async () => {
+  const fetchFullQuiz = useCallback(async () => {
     setIsLoading(true)
     const {data} = await axios.get<Quiz>('https://63e7d8a5ac3920ad5be4f661.mockapi.io/Quizs/' + id)
     setQuiz(data)
     setIsLoading(false)
-  }
+  },[id])
 
   const onClick = (correct: boolean) => {
     if (correct) setCorrectCount(correctCount+1)
@@ -35,7 +35,7 @@ const FullQuiz = () => {
   }
   useEffect(() => {
     fetchFullQuiz()
-  }, [])
+  }, [fetchFullQuiz])
   return (
     <>
       <ButtonBack/>
@@ -52,9 +52,9 @@ const FullQuiz = () => {
             <div className={c.body}>
               {activeQuest !== (quiz?.quests?.length)
                 ? quiz?.quests.map((elem, i) =>
-                  <Quest {...elem} id={i} activeQuest={activeQuest}>
+                  <Quest key={i} {...elem} id={i} activeQuest={activeQuest}>
                     {elem.answers.map((answer, i) =>
-                      <Answer title={answer.title} correct={answer.correct} showCorrect={showCorrect} id={i}
+                      <Answer key={i} title={answer.title} correct={answer.correct} showCorrect={showCorrect} id={i} delay={i/10}
                               onClick={(correct)=>onClick(correct)}/>)}
                   </Quest>)
                 : <CompletePage count={correctCount} total={quiz?.quests?.length}/>

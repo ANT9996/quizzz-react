@@ -53,8 +53,8 @@ const Catalog = () => {
       <List title={'Catalog'}>
         {
           isLoading
-            ? [...Array(3)].map(elem => <Skeleton/>)
-            : list.map((elem, i) => <ListItem key={elem.id} id={elem.id} title={elem.title} description={elem.description}/>)}
+            ? [...Array(3)].map((elem, i) => <Skeleton key={i}/>)
+            : list.map((elem, i) => <ListItem key={i} id={elem.id} title={elem.title} description={elem.description}/>)}
       </List>
     </>
   );

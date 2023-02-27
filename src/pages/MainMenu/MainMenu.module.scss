@@ -1,10 +1,11 @@
 @import "../../styles/animates";
-
+@import "../../styles/colors";
 .head {
   font-family: "Nunito", sans-serif;
   font-size: 100px;
   letter-spacing: 10px;
-  animation: HeadColor 10s ease-in infinite;
+  animation: HeadColor 7s ease-in-out infinite;
+  color: $color-light1
 }
 
 .menu {
@@ -13,10 +14,15 @@
 }
 
 .menu_elem {
-  color: black;
+  color: white;
   text-decoration: none;
-  border: 2px solid black;
-  transition: background-color 0.5s;
+  border-top: 2px solid $color-light1;
+  border-left: 2px solid $color-light1;
+  border-bottom: 3px inset $color-dark3;
+  border-right: 3px inset $color-dark3;
+  transform: translate(-2px, -3px);
+  box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
   font-size: 24px;
   margin: .5rem 0;
   font-family: "Nunito", sans-serif;
@@ -24,34 +30,50 @@
   padding: 1rem 10rem;
   outline: none;
   cursor: pointer;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent);
+  //background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent);
 
   &:active {
-    transform: scale(.95);
+    //transform: scale(.95);
+    box-shadow: 0 0 0!important;
+    transform: translate(0,0);
   }
 
+
   &:hover {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.7);
   }
 
   &:nth-child(1):hover {
     background: rgba(0, 0, 0, 0.5);
     color: $color1;
-    border: 2px solid $color1;
+    //border: 2px solid $color1;
+    border-top: 2px solid $color1;
+    border-left: 2px solid $color1;
+    border-bottom: 3px inset $color1;
+    border-right: 3px inset $color1;
   }
   &:nth-child(2):hover {
     background: rgba(0, 0, 0, 0.5);
     color: $color2;
-    border: 2px solid $color2;
+    border-top: 2px solid $color2;
+    border-left: 2px solid $color2;
+    border-bottom: 3px inset $color2;
+    border-right: 3px inset $color2;
   }
   &:nth-child(3):hover {
     background: rgba(0, 0, 0, 0.5);
     color: $color3;
-    border: 2px solid $color3;
+    border-top: 2px solid $color3;
+    border-left: 2px solid $color3;
+    border-bottom: 3px inset $color3;
+    border-right: 3px inset $color3;
   }
   &:nth-child(4):hover {
     background: rgba(0, 0, 0, 0.5);
     color: $color4;
-    border: 2px solid $color4;
+    border-top: 2px solid $color4;
+    border-left: 2px solid $color4;
+    border-bottom: 3px inset $color4;
+    border-right: 3px inset $color4;
   }
 }
