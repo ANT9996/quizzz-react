@@ -1,14 +1,12 @@
 import React from 'react';
 import c from './ButtonBack.module.scss'
 import {Link} from "react-router-dom";
+import '../../styles/button_light.scss'
 
 const ButtonBack = () => {
   return (
     <Link to={'/'}>
-      <div className={c.back}>
-        <div className={c.icon}/>
-        <div className={c.text}>назад</div>
-      </div>
+      <div className={`${c.back_light} button_light`}>назад</div>
     </Link>
   );
 };
