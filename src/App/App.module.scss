@@ -1,0 +1,27 @@
+@import "../styles/animates";
+
+.App {
+  animation: Background 10s ease-in-out infinite;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(120deg, #d02e2e, #26d7d1, #8026d7);
+  background-size: 500% 500%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .body {
+    min-height: 100px;
+    position: relative;
+    padding: 2.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 700px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}

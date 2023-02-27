@@ -1,0 +1,24 @@
+@import "src/styles/animates";
+
+.FullQuiz {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.head {
+  position: relative;
+  display: flex;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: normal;
+  font-family: Nunito, sans-serif;
+  letter-spacing: 1px;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}

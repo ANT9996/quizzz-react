@@ -1,0 +1,45 @@
+.answer {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  border: 2px solid mistyrose;
+  background-color: rgba(255, 255, 255, 0.1);
+  //padding: .5rem;
+  margin: .5rem 0;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.text {
+  padding: .5rem;
+  height: 100%;
+  font-family: Nunito, sans-serif;
+  font-size: 1.5rem;
+}
+
+.correct {
+  width: 40px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid mistyrose;
+}
+
+.show {
+  display: flex;
+}
+
+.correct {
+  background-color: rgba(152, 255, 0, 0.2);
+}
+
+.wrong {
+  background-color: rgba(208, 46, 46, 0.2);
+}
