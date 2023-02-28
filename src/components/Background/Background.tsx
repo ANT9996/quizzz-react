@@ -4,7 +4,7 @@ import BackgroundItem from "../BackgroundItem/BackgroundItem";
 const Background = () => {
   return (
     <div className={c.background}>
-      {[...Array(20)].map((elem, i) => <BackgroundItem id={i}/>)}
+      {[...Array(20)].map((elem, i) => <BackgroundItem key={i} id={i}/>)}
     </div>
   );
 };
