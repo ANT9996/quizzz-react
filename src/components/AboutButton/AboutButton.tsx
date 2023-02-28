@@ -2,7 +2,7 @@ import React, {FC, useEffect, useRef, useState} from 'react';
 import c from "./AboutButton.module.scss";
 import '../../styles/button_light.scss'
 
-const AboutButton: FC<{ description: string }> = ({description}) => {
+const AboutButton: FC<{ description: string, name?:string }> = ({description, name}) => {
   const [showAbout, setShowAbout] = useState<boolean>(false)
   const aboutRef = useRef<HTMLButtonElement>(null)
 
@@ -25,7 +25,7 @@ const AboutButton: FC<{ description: string }> = ({description}) => {
   return (
     <>
       <button ref={aboutRef} onClick={onClick} className={`${c.about} button_light`}>
-        О наборе
+        {name || `О наборе`}
       </button>
       <div hidden={!showAbout} className={c.description}>{description}</div>
     </>

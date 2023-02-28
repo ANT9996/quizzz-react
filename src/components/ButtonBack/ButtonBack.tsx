@@ -6,7 +6,7 @@ import '../../styles/button_light.scss'
 const ButtonBack = () => {
   return (
     <Link to={'/'}>
-      <div className={`${c.back_light} button_light`}>назад</div>
+      <div className={`${c.back_light} button_light`}>в главное меню</div>
     </Link>
   );
 };

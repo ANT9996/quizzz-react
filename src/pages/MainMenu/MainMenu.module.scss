@@ -43,10 +43,17 @@
     box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.7);
   }
 
+  &:nth-child(1) {
+    color: $color-light4;
+    border-top: 2px solid $color-light4-up;
+    border-left: 2px solid $color-light4-up;
+    border-bottom: 3px inset $color-light4-down;
+    border-right: 3px inset $color-light4;
+}
+
   &:nth-child(1):hover {
     background: rgba(0, 0, 0, 0.5);
     color: $color1;
-    //border: 2px solid $color1;
     border-top: 2px solid $color1;
     border-left: 2px solid $color1;
     border-bottom: 3px inset $color1;

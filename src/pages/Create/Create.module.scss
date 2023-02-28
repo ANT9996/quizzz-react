@@ -1,0 +1,91 @@
+.create {
+  position: relative;
+  width: 100%;
+}
+
+.head {
+  color: white;
+  text-shadow: 2px 3px 1px black;
+  text-align: center;
+}
+
+.quiz {
+  $colorQuiz: purple;
+  border-right: 2px solid $colorQuiz;
+  margin: 1rem 0;
+
+  button {
+    color: $colorQuiz;
+  }
+
+  input[type="text"] {
+    outline: none;
+    padding: .3rem 1rem;
+    width: -webkit-fill-available;
+  }
+}
+
+.quest {
+  $colorQuest: red;
+  border-right: 2px solid $colorQuest;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+
+  button {
+    color: $colorQuest;
+  }
+
+  input[type="text"] {
+    outline: none;
+    padding: .3rem 1rem;
+    width: -webkit-fill-available;
+  }
+}
+
+.quest_head {
+  margin: 1rem 0;
+}
+
+.answers {
+  $colorAnswers: green;
+  border-right: 2px solid $colorAnswers;
+  margin: .5rem 3rem 1rem 0 ;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    color: $colorAnswers;
+  }
+}
+
+label {
+  background-color: whitesmoke;
+}
+
+.answerInputs {
+  position: relative;
+
+  input[type="text"] {
+    outline: none;
+    padding: .3rem 1rem;
+    width: -webkit-fill-available;
+  }
+  label {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: none;
+  }
+}
+
+.addButton {
+  width: 100%;
+  text-transform: uppercase;
+  padding: .3rem 1rem;
+}

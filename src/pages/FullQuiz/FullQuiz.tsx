@@ -24,14 +24,13 @@ const FullQuiz = () => {
     setIsLoading(false)
   },[id])
 
-  const onClick = (correct: boolean) => {
+  const onClick = async (correct: boolean) => {
     if (correct) setCorrectCount(correctCount+1)
     setShowCorrect(true)
-
     setTimeout(() => {
       setActiveQuest(activeQuest + 1)
       setShowCorrect(false)
-    }, 3000)
+    }, 1500)
   }
   useEffect(() => {
     fetchFullQuiz()
