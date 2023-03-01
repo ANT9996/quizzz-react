@@ -21,7 +21,10 @@
   input[type="text"] {
     outline: none;
     padding: .3rem 1rem;
-    width: -webkit-fill-available;
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
   }
 }
 
@@ -29,6 +32,9 @@
   $colorQuest: red;
   border-right: 2px solid $colorQuest;
   margin-right: 2rem;
+  @media (max-width: 650px) {
+    margin-right: .8rem;
+  }
   margin-bottom: 1rem;
 
   button {
@@ -38,7 +44,10 @@
   input[type="text"] {
     outline: none;
     padding: .3rem 1rem;
-    width: -webkit-fill-available;
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
   }
 }
 
@@ -50,6 +59,9 @@
   $colorAnswers: green;
   border-right: 2px solid $colorAnswers;
   margin: .5rem 3rem 1rem 0 ;
+  @media (max-width: 650px) {
+    margin-right: .8rem;
+  }
   display: flex;
   flex-direction: column;
 
@@ -68,7 +80,10 @@ label {
   input[type="text"] {
     outline: none;
     padding: .3rem 1rem;
-    width: -webkit-fill-available;
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
   }
   label {
     padding: 0 1rem;
@@ -81,6 +96,11 @@ label {
     bottom: 0;
     top: 0;
     background: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    }
   }
 }
 

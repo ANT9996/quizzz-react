@@ -5,42 +5,15 @@ import ListItem from "../../components/ListItem/ListItem";
 import {Quiz} from "../../types";
 import axios from "axios";
 import Skeleton from "../../components/Skeleton/Skeleton";
+import {MOCK_URL} from "../../constants";
 
 const Catalog = () => {
   const [list, setList] = useState<Array<Quiz>>([])
   const [isLoading, setIsLoading] = useState(true)
-  // const list:Quiz[] = [
-  //   {
-  //     id: 1,
-  //     title: 'Quiz #1',
-  //     description: 'IT, Games',
-  //     quests: [
-  //       {
-  {/*        title: '#1 question',*/}
-  {/*        description: '#1 description',*/}
-  //         answers: [
-  //           {title: '#1 answer', correct: true,},
-  //           {title: '#2 answer', correct: false,},
-  //           {title: '#3 answer', correct: false,},
-  //           {title: '#4 answer', correct: false,},
-  //         ]
-  {/*      },*/}
-  {/*      {*/}
-  {/*        title: '#2 question',*/}
-  {/*        description: '#2 description',*/}
-  {/*        answers: [*/}
-  //           {title: '#1 answer', correct: false,},
-  //           {title: '#2 answer', correct: false,},
-  //           {title: '#3 answer', correct: true,},
-  //           {title: '#4 answer', correct: false,},
-  //         ]
-  //       },
-  //     ]
-  //   }
-  // ];
+
   const fetchQuizs = async () => {
     setIsLoading(true)
-    const {data} = await axios.get('https://63e7d8a5ac3920ad5be4f661.mockapi.io/Quizs')
+    const {data} = await axios.get(MOCK_URL)
     setList(data);
     setIsLoading(false)
   }

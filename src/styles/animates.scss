@@ -60,7 +60,11 @@ $color4: plum;
   70% {
     transform: translateX(10px);
   }
+  90% {
+    opacity: 1;
+  }
   100% {
+    opacity: 0;
     bottom: 0;
     transform: rotate(360deg) translateX(-20px);
   }

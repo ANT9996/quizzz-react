@@ -2,7 +2,11 @@
 @import "../../styles/colors";
 .head {
   font-family: "Nunito", sans-serif;
-  font-size: 100px;
+  font-size: 6.25rem;
+  @media (max-width: 600px) {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
   letter-spacing: 10px;
   animation: HeadColor 7s ease-in-out infinite;
   color: $color-light1
@@ -28,6 +32,9 @@
   font-family: "Nunito", sans-serif;
   text-transform: uppercase;
   padding: 1rem 10rem;
+  @media (max-width: 600px) {
+    padding: 1rem 3rem;
+  }
   outline: none;
   cursor: pointer;
   //background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent);

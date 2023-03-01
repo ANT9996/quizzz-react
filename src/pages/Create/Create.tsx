@@ -1,20 +1,29 @@
 import React, {useEffect, useRef, useState} from 'react';
-import ButtonBack from "../../components/ButtonBack/ButtonBack";
+import {ButtonBack, AboutButton} from "../../components";
+import {
+  HOW_TO_CREATE_QUIZ_0,
+  HOW_TO_CREATE_QUIZ_1,
+  HOW_TO_CREATE_QUIZ_2,
+  HOW_TO_CREATE_QUIZ_3,
+  HOW_TO_CREATE_QUIZ_4,
+  MOCK_URL
+} from "../../constants";
+import {validAnswer, validQuest, validQuiz} from "../../helpers";
 import c from './Create.module.scss'
-import AboutButton from "../../components/AboutButton/AboutButton";
+import axios from "axios";
 
-interface lAnswer {
+export interface lAnswer {
   title: string,
   correct: boolean
 }
 
-interface lQuest {
+export interface lQuest {
   title: string,
   description: string,
   answers: Array<lAnswer>
 }
 
-interface lQuiz {
+export interface lQuiz {
   title: string
   description: string
   quests: Array<lQuest>
@@ -32,7 +41,7 @@ const Create = () => {
   // хуки для создания квиза
   const [inputTitleQuiz, setInputTitleQuiz] = useState<string>('')
   const [inputDescQuiz, setInputDescQuiz] = useState<string>('')
-  const [quests, setQuests] = useState<Array<lQuest>>()
+  const [quests, setQuests] = useState<Array<lQuest>>([])
 
   const [quiz, setQuiz] = useState<lQuiz>()
 
@@ -45,8 +54,7 @@ const Create = () => {
   }
 
   const clearAnswer = () => {
-    if (checkRef.current)
-      checkRef.current.checked = false
+    if (checkRef.current) checkRef.current.checked = false
     setInputCheckbox(false)
     setInputAnswer('')
   }
@@ -58,48 +66,60 @@ const Create = () => {
     setAnswers([])
   }
 
-  // const clearQuiz = () => {
-  //   return
-  // }
+  const clearQuiz = () => {
+    setInputTitleQuiz('')
+    setInputDescQuiz('')
+    clearQuest()
+  }
+
+
+
+
+
+
 
   const addAnswer = () => {
+    if (!validAnswer(inputAnswer)) return
     setAnswers(prevState => [...prevState, {title: inputAnswer, correct: inputCheckbox}])
     clearAnswer()
   }
 
   const addQuest = () => {
+    if (!validQuest(answers, inputTitleQuest)) return
     setQuests(prevState => prevState
       ? [...prevState, {title: inputTitleQuest, description: inputDescQuest, answers}]
       : [{title: inputTitleQuest, description: inputDescQuest, answers}])
     clearQuest()
   }
 
-  const addQuiz = () => {
+  const addQuiz = async () => {
+    if (!validQuiz(quests, inputTitleQuiz, inputDescQuiz)) return
     if (quests) {
       setQuiz({title: inputTitleQuiz, description: inputDescQuiz, quests})
-      setInputDescQuiz('')
-      setInputDescQuiz('')
-      clearQuest()
+      await axios.post(MOCK_URL, {title: inputTitleQuiz, description: inputDescQuiz, quests})
+        .then(r => console.log(r))
+        .catch(e => console.error(e))
+      clearQuiz()
     }
   }
-
+const description = [HOW_TO_CREATE_QUIZ_0, HOW_TO_CREATE_QUIZ_1, HOW_TO_CREATE_QUIZ_2, HOW_TO_CREATE_QUIZ_3, HOW_TO_CREATE_QUIZ_4]
   return (
     <>
       <ButtonBack/>
-      <AboutButton description={'Процесс создания...'} name={'Как создать?'}/>
+      <AboutButton description={description} name={'Как создать?'}/>
       <div className={c.create}>
         <h1 className={c.head}>Создание квиза</h1>
         <div className={c.form}>
           <div className={c.quiz}>
             <input value={inputTitleQuiz} onChange={e => setInputTitleQuiz(e.target.value)} type="text"
-                   placeholder={'Название квиза...'}/>
+                   placeholder={'*Название квиза...'}/>
             <br/>
             <input value={inputDescQuiz} onChange={e => setInputDescQuiz(e.target.value)} type="text"
-                   placeholder={'Описание квиза...'}/>
+                   placeholder={'*Описание квиза...'}/>
             <div className={c.quest}>
               <div className={c.quest_head}>
                 <input value={inputTitleQuest} onChange={e => setInputTitleQuest(e.target.value)} type="text"
-                       placeholder={'Название вопроса...'}/>
+                       placeholder={'*Название вопроса...'}/>
                 <br/>
                 <input value={inputDescQuest} onChange={e => setInputDescQuest(e.target.value)} type="text"
                        placeholder={'Описание вопроса...'}/>

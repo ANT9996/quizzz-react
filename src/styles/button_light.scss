@@ -9,6 +9,9 @@
   transition-duration: 0.1s;
   user-select: none;
   cursor: pointer;
+  @media (max-width: 500px) {
+    font-size: .5rem;
+  }
 
   text-transform: uppercase;
   color: $color-light2;

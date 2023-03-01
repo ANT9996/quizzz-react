@@ -11,12 +11,16 @@
 }
 
 .title {
+  word-break: break-word;
   color: white;
   text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.8);
   font-size: 2rem;
   font-weight: normal;
   font-family: Nunito, sans-serif;
   letter-spacing: 1px;
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 }
 
 .body {
