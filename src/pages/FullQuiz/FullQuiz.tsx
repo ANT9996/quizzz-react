@@ -1,13 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import ButtonBack from "../../components/ButtonBack/ButtonBack";
+import {ButtonBack, ProgressBar, Quest, Answer, AboutButton} from "../../components";
 import axios from "axios";
 import {Quiz} from "../../types";
-import Quest from "../../components/Quest/Quest";
-import Answer from "../../components/Answer/Answer";
 import c from './FullQuiz.module.scss'
-import ProgressBar from "../../components/ProgressBar/ProgressBar";
-import AboutButton from "../../components/AboutButton/AboutButton";
 import CompletePage from "../CompletePage/CompletePage";
 
 const FullQuiz = () => {

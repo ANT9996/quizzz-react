@@ -32,8 +32,11 @@ export interface lQuiz {
 const Create = () => {
   // хуки для создания массива с ответами
   const checkRef = useRef<HTMLInputElement>(null)
+  const answerRef = useRef<HTMLInputElement>(null)
   const [inputCheckbox, setInputCheckbox] = useState<boolean>(false)
   const [inputAnswer, setInputAnswer] = useState<string>('')
+  const [answerDisabled, setAnswerDisabled] = useState<boolean>(false)
+
   // хуки для создания вопросов
   const [inputTitleQuest, setInputTitleQuest] = useState<string>('')
   const [inputDescQuest, setInputDescQuest] = useState<string>('')
@@ -72,16 +75,13 @@ const Create = () => {
     clearQuest()
   }
 
-
-
-
-
-
-
-  const addAnswer = () => {
+  const addAnswer = async () => {
     if (!validAnswer(inputAnswer)) return
-    setAnswers(prevState => [...prevState, {title: inputAnswer, correct: inputCheckbox}])
-    clearAnswer()
+    setAnswerDisabled(true)
+    await setAnswers(prevState => [...prevState, {title: inputAnswer, correct: inputCheckbox}])
+    await clearAnswer()
+    setAnswerDisabled(false)
+    answerRef.current?.focus()
   }
 
   const addQuest = () => {
@@ -127,13 +127,13 @@ const description = [HOW_TO_CREATE_QUIZ_0, HOW_TO_CREATE_QUIZ_1, HOW_TO_CREATE_Q
               <hr/>
               <div className={c.answers}>
                 <div className={c.answerInputs}>
-                  <input value={inputAnswer} onChange={(e) => setInputAnswer(e.target.value)} type="text"
+                  <input value={inputAnswer} ref={answerRef} onChange={(e) => setInputAnswer(e.target.value)} type="text"
                          placeholder={'Введите вариант ответа...'}/>
                   <label htmlFor="checkbox"
                          style={{color: inputCheckbox ? 'green' : 'red'}}>{inputCheckbox ? 'Правильный' : 'Неправильный'}</label>
                   <input onClick={clickHandle} ref={checkRef} id={'checkbox'} type="checkbox" hidden/>
                 </div>
-                <button className={c.addButton} onClick={addAnswer}>Добавить вариант ответа</button>
+                <button className={c.addButton} disabled={answerDisabled} onClick={addAnswer}>Добавить вариант ответа</button>
               </div>
               <button className={c.addButton} onClick={addQuest}>добавить вопрос</button>
             </div>

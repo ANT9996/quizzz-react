@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import ButtonBack from "../../components/ButtonBack/ButtonBack";
-import List from "../../components/List/List";
-import ListItem from "../../components/ListItem/ListItem";
+import {ButtonBack, List, Skeleton, ListItem} from "../../components/";
 import {Quiz} from "../../types";
 import axios from "axios";
-import Skeleton from "../../components/Skeleton/Skeleton";
 import {MOCK_URL} from "../../constants";
 
 const Catalog = () => {
   const [list, setList] = useState<Array<Quiz>>([])
   const [isLoading, setIsLoading] = useState(true)
+  // const [deletable, setDeletable] = useState<boolean>(false)
+  const deletable:boolean = false
 
   const fetchQuizs = async () => {
     setIsLoading(true)
@@ -20,6 +19,17 @@ const Catalog = () => {
   useEffect(() => {
     fetchQuizs()
   },[])
+
+  const deleteQuiz = async (id:string) => {
+    try {
+      await axios.delete(MOCK_URL+'/'+id)
+      const newList = list.filter(elem => elem.id !== id)
+      console.log(newList)
+      setList(newList)
+    } catch (err) {
+      console.warn(err)
+    }
+  }
   return (
     <>
       <ButtonBack/>
@@ -27,7 +37,7 @@ const Catalog = () => {
         {
           isLoading
             ? [...Array(3)].map((elem, i) => <Skeleton key={i}/>)
-            : list.map((elem, i) => <ListItem key={i} id={elem.id} title={elem.title} description={elem.description}/>)}
+            : list.map((elem, i) => <ListItem key={i} id={elem.id} title={elem.title} description={elem.description} deletable={deletable} onClickDelete={(id) => deleteQuiz(id)}/>)}
       </List>
     </>
   );

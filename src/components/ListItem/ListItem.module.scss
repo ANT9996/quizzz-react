@@ -27,20 +27,45 @@
     text-decoration: none;
   }
 
+  .delete {
+    &:disabled {
+      opacity: .5;
+    }
+    margin-left: .3rem;
+    background-color: $color-error;
+    border-top: 3px solid $color-error-up;
+    border-left: 3px solid $color-error-up;
+    border-right: 4px inset $color-error-down;
+    border-bottom: 4px inset $color-error-down;
+    &:hover {
+      border-top: 3px solid $color-error-up;
+      border-left: 3px solid $color-error-up;
+      border-right: 4px inset $color-error-down;
+      border-bottom: 4px inset $color-error-down;
+    }
+    img {
+      width: 20px;
+    }
+  }
+
   button {
     position: initial;
     margin: 0;
     background-color: $color-dark1;
-    border-top: 2px solid $color-dark1-up;
-    border-left: 2px solid $color-dark1-up;
-    border-right: 3px inset $color-dark1-down;
-    border-bottom: 3px inset $color-dark1-down;
+    border-top: 3px solid $color-dark1-up;
+    border-left: 3px solid $color-dark1-up;
+    border-right: 4px inset $color-dark1-down;
+    border-bottom: 4px inset $color-dark1-down;
     &:hover {
-      border-top: 2px solid $color-dark1-up;
-      border-left: 2px solid $color-dark1-up;
-      border-right: 3px inset $color-dark1-down;
-      border-bottom: 3px inset $color-dark1-down;
+      border-top: 3px solid $color-dark1-up;
+      border-left: 3px solid $color-dark1-up;
+      border-right: 4px inset $color-dark1-down;
+      border-bottom: 4px inset $color-dark1-down;
     }
+
+
+
+
   }
 }
 

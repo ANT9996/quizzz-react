@@ -8,5 +8,6 @@ import ButtonBack from './ButtonBack/ButtonBack'
 import CorrectStatus from './CorrectStatus/CorrectStatus'
 import ListItem from './ListItem/ListItem'
 import Skeleton from './Skeleton/Skeleton'
+import ProgressBar from "./ProgressBar/ProgressBar";
 
-export {Quest, Answer, List, AboutButton, Background, BackgroundItem, CorrectStatus, ButtonBack, ListItem, Skeleton}
+export {Quest, Answer, List, AboutButton, Background, BackgroundItem, CorrectStatus, ButtonBack, ListItem, Skeleton, ProgressBar}

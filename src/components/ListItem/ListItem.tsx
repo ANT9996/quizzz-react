@@ -1,15 +1,24 @@
-import { motion } from 'framer-motion';
-import React, {FC} from 'react';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'
+import React, {FC, useState} from 'react'
+import { Link } from 'react-router-dom'
 import c from './ListItem.module.scss'
 import '../../styles/button_light.scss'
+import trashIcon from '../../assets/img/trash.svg'
 interface ItemTypes {
-  id: string,
-  title: string,
+  id: string
+  title: string
   description: string
+  deletable: boolean
+  onClickDelete: (id:string) => void
 }
 
-const ListItem:FC<ItemTypes> = ({id, title, description}) => {
+const ListItem:FC<ItemTypes> = ({id, title, description, deletable , onClickDelete}) => {
+  const [deleting, setDeleting] = useState<boolean>(false)
+  const clickDel = async () => {
+    setDeleting(true)
+    await onClickDelete(id)
+    setDeleting(false)
+  }
   return (
     <motion.div className={c.item} initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1}}>
       <div className={c.item_content}>
@@ -18,7 +27,10 @@ const ListItem:FC<ItemTypes> = ({id, title, description}) => {
           {description.substring(0,50)}
         </div>
       </div>
-      <div className={`${c.buttons}`}><Link to={'/quiz/'+id}><button className={'button_light'}>Начать</button></Link></div>
+      <div className={`${c.buttons}`}>
+        <Link to={'/quiz/'+id}><button className={'button_light'}>Начать</button></Link>
+        {deletable && <button disabled={deleting} onClick={clickDel} className={`button_light ${c.delete}`}><img src={trashIcon} alt=""/></button>}
+      </div>
     </motion.div>
   );
 };

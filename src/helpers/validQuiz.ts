@@ -2,7 +2,7 @@ import {ERROR_QUIZ_DESCRIPTION_LENGTH, ERROR_QUIZ_QUESTS_LENGTH, ERROR_QUIZ_TITL
 import {lQuest} from "../pages/Create/Create";
 
 export const validQuiz = (quests:Array<lQuest>, inputTitleQuiz:string, inputDescQuiz:string) => {
-  if (quests?.length || 0 < 1) {
+  if (quests?.length < 1) {
     alert(ERROR_QUIZ_QUESTS_LENGTH)
     return false
   }
