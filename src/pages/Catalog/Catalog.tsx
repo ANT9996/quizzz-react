@@ -36,7 +36,7 @@ const Catalog = () => {
       <List title={'Catalog'}>
         {
           isLoading
-            ? [...Array(3)].map((elem, i) => <Skeleton key={i}/>)
+            ? [...Array(1)].map((elem, i) => <Skeleton key={i}/>)
             : list.map((elem, i) => <ListItem key={i} id={elem.id} title={elem.title} description={elem.description} deletable={deletable} onClickDelete={(id) => deleteQuiz(id)}/>)}
       </List>
     </>

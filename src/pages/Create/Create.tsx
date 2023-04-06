@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {ButtonBack, AboutButton} from "../../components";
 import {
+  ADD_ANSWER_SUCCESS, ADD_QUEST_SUCCESS, ADD_QUIZ_SUCCESS,
   HOW_TO_CREATE_QUIZ_0,
   HOW_TO_CREATE_QUIZ_1,
   HOW_TO_CREATE_QUIZ_2,
@@ -11,6 +12,7 @@ import {
 import {validAnswer, validQuest, validQuiz} from "../../helpers";
 import c from './Create.module.scss'
 import axios from "axios";
+import {NotificationManager} from 'react-notifications'
 
 export interface lAnswer {
   title: string,
@@ -81,6 +83,7 @@ const Create = () => {
     await setAnswers(prevState => [...prevState, {title: inputAnswer, correct: inputCheckbox}])
     await clearAnswer()
     setAnswerDisabled(false)
+    NotificationManager.success(ADD_ANSWER_SUCCESS)
     answerRef.current?.focus()
   }
 
@@ -89,6 +92,7 @@ const Create = () => {
     setQuests(prevState => prevState
       ? [...prevState, {title: inputTitleQuest, description: inputDescQuest, answers}]
       : [{title: inputTitleQuest, description: inputDescQuest, answers}])
+    NotificationManager.success(ADD_QUEST_SUCCESS)
     clearQuest()
   }
 
@@ -99,6 +103,7 @@ const Create = () => {
       await axios.post(MOCK_URL, {title: inputTitleQuiz, description: inputDescQuiz, quests})
         .then(r => console.log(r))
         .catch(e => console.error(e))
+      NotificationManager.success(ADD_QUIZ_SUCCESS)
       clearQuiz()
     }
   }

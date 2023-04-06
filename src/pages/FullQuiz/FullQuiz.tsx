@@ -5,6 +5,7 @@ import axios from "axios";
 import {Quiz} from "../../types";
 import c from './FullQuiz.module.scss'
 import CompletePage from "../CompletePage/CompletePage";
+import { MOCK_URL } from './../../constants';
 
 const FullQuiz = () => {
   const [quiz, setQuiz] = useState<Quiz>()
@@ -15,7 +16,7 @@ const FullQuiz = () => {
   const {id} = useParams()
   const fetchFullQuiz = useCallback(async () => {
     setIsLoading(true)
-    const {data} = await axios.get<Quiz>('https://63e7d8a5ac3920ad5be4f661.mockapi.io/Quizs/' + id)
+    const {data} = await axios.get<Quiz>(MOCK_URL + "/" + id)
     setQuiz(data)
     setIsLoading(false)
   },[id])
