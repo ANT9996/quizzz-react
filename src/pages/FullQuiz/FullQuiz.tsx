@@ -6,7 +6,6 @@ import {Quiz} from "../../types";
 import c from './FullQuiz.module.scss'
 import CompletePage from "../CompletePage/CompletePage";
 import { MOCK_URL } from '../../constants';
-
 const FullQuiz = () => {
   const [quiz, setQuiz] = useState<Quiz>()
   const [correctCount, setCorrectCount] = useState<number>(0)
