@@ -1,7 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {ButtonBack, AboutButton} from "../../components";
 import {
-  ADD_ANSWER_SUCCESS, ADD_QUEST_SUCCESS, ADD_QUIZ_SUCCESS,
+  ADD_ANSWER_SUCCESS,
+  ADD_QUEST_SUCCESS,
+  ADD_QUIZ_SUCCESS,
+  ANSWER_FALSE,
+  ANSWER_TRUE,
   HOW_TO_CREATE_QUIZ_0,
   HOW_TO_CREATE_QUIZ_1,
   HOW_TO_CREATE_QUIZ_2,
@@ -129,13 +133,12 @@ const description = [HOW_TO_CREATE_QUIZ_0, HOW_TO_CREATE_QUIZ_1, HOW_TO_CREATE_Q
                 <input value={inputDescQuest} onChange={e => setInputDescQuest(e.target.value)} type="text"
                        placeholder={'Описание вопроса...'}/>
               </div>
-              <hr/>
               <div className={c.answers}>
                 <div className={c.answerInputs}>
                   <input value={inputAnswer} ref={answerRef} onChange={(e) => setInputAnswer(e.target.value)} type="text"
                          placeholder={'Введите вариант ответа...'}/>
                   <label htmlFor="checkbox"
-                         style={{color: inputCheckbox ? 'green' : 'red'}}>{inputCheckbox ? 'Правильный' : 'Неправильный'}</label>
+                         style={{color: inputCheckbox ? 'green' : 'red'}}>{inputCheckbox ? ANSWER_TRUE : ANSWER_FALSE}</label>
                   <input onClick={clickHandle} ref={checkRef} id={'checkbox'} type="checkbox" hidden/>
                 </div>
                 <button className={c.addButton} disabled={answerDisabled} onClick={addAnswer}>Добавить вариант ответа</button>

@@ -1,13 +1,14 @@
 
 .list {
+  z-index: 2;
   padding: 1rem;
   max-height: 700px;
   overflow-y: auto;
   overflow-x: hidden;
   margin-top: 2rem;
   display: grid;
+  gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2em 2em;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -32,6 +33,7 @@
 }
 
 .title {
+  z-index: 2;
   text-transform: uppercase;
   font-size: 30px;
   letter-spacing: 3px;

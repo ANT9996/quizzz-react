@@ -1,6 +1,7 @@
 @import "../../styles/animates";
 @import "../../styles/colors";
 .head {
+  z-index: 2;
   font-family: "Nunito", sans-serif;
   font-size: 6.25rem;
   margin-bottom: 1rem;
@@ -14,6 +15,8 @@
 }
 
 .menu {
+  background-color: inherit;
+  z-index: 2;
   display: flex;
   flex-direction: column;
 }
@@ -35,32 +38,25 @@
   text-transform: uppercase;
   padding: 1rem 10rem;
   text-align: center;
+  outline: none;
+  cursor: pointer;
   @media (max-width: 600px) {
     padding: 1rem 3rem;
   }
-  outline: none;
-  cursor: pointer;
-  //background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent);
-
   &:active {
-    //transform: scale(.95);
     box-shadow: 0 0 0!important;
     transform: translate(0,0);
   }
-
-
   &:hover {
     box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.7);
   }
-
   &:nth-child(1) {
     color: $color-light4;
     border-top: 2px solid $color-light4-up;
     border-left: 2px solid $color-light4-up;
     border-bottom: 3px inset $color-light4-down;
     border-right: 3px inset $color-light4;
-}
-
+  }
   &:nth-child(1):hover {
     background: rgba(0, 0, 0, 0.5);
     color: $color1;
@@ -77,20 +73,20 @@
     border-bottom: 3px inset $color2;
     border-right: 3px inset $color2;
   }
-  //&:nth-child(3):hover {
-  //  background: rgba(0, 0, 0, 0.5);
-  //  color: $color3;
-  //  border-top: 2px solid $color3;
-  //  border-left: 2px solid $color3;
-  //  border-bottom: 3px inset $color3;
-  //  border-right: 3px inset $color3;
-  //}
   &:nth-child(3):hover {
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: $color4;
     border-top: 2px solid $color4;
     border-left: 2px solid $color4;
     border-bottom: 3px inset $color4;
     border-right: 3px inset $color4;
+  }
+  &:nth-child(4):hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: $color3;
+    border-top: 2px solid $color3;
+    border-left: 2px solid $color3;
+    border-bottom: 3px inset $color3;
+    border-right: 3px inset $color3;
   }
 }

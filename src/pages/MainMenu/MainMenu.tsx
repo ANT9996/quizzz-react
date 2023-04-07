@@ -10,6 +10,7 @@ const MainMenu = () => {
         <Link to={'/catalog'} className={c.menu_elem}>каталог</Link>
         <Link to={'/create'} className={c.menu_elem}>создать</Link>
         <Link to={'/help'} className={c.menu_elem}>помощь</Link>
+        <Link to={'/history'} className={c.menu_elem}>история</Link>
       </div>
     </>
   )

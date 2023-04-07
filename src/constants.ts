@@ -8,10 +8,13 @@ export const SEND_SUCCESS = "Письмо успешно отправлено"
 export const SEND_ERROR = "При отправке письма произошла ошибка"
 
 // Data
-export const MOCK_URL = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/Quizs"
+export const MOCK_URL = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/Quizs/"
+export const MOCK_URL_HISTORY = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/History"
 
 // Create page
 
+export const ANSWER_TRUE = 'Правильный'
+export const ANSWER_FALSE = 'Неправильный'
 export const ERROR_ANSWER_LENGTH =
   "Вариант ответа должен состоять из 3 или более символов. \n\n P.S Не забудь выбрать правильность ответа"
 
@@ -41,6 +44,7 @@ export const HOW_TO_CREATE_QUIZ_4 = "P.S Поля, отмеченные (*) об
 export const ADD_ANSWER_SUCCESS = "Вариант ответа добавлен"
 export const ADD_QUEST_SUCCESS = "Вопрос добавлен"
 export const ADD_QUIZ_SUCCESS = "Квиз создан"
+
 // github
 export const GITHUB_URL = "https://github.com/"
 export const GITHUB_REPO_URL = "ANT9996/quizzz-react"

@@ -5,7 +5,7 @@ import axios from "axios";
 import {Quiz} from "../../types";
 import c from './FullQuiz.module.scss'
 import CompletePage from "../CompletePage/CompletePage";
-import { MOCK_URL } from './../../constants';
+import { MOCK_URL } from '../../constants';
 
 const FullQuiz = () => {
   const [quiz, setQuiz] = useState<Quiz>()
@@ -16,7 +16,7 @@ const FullQuiz = () => {
   const {id} = useParams()
   const fetchFullQuiz = useCallback(async () => {
     setIsLoading(true)
-    const {data} = await axios.get<Quiz>(MOCK_URL + "/" + id)
+    const {data} = await axios.get<Quiz>(MOCK_URL+id)
     setQuiz(data)
     setIsLoading(false)
   },[id])
@@ -53,7 +53,7 @@ const FullQuiz = () => {
                       <Answer key={i} title={answer.title} correct={answer.correct} showCorrect={showCorrect} id={i} delay={i/10}
                               onClick={(correct)=>onClick(correct)}/>)}
                   </Quest>)
-                : <CompletePage count={correctCount} total={quiz?.quests?.length}/>
+                : <CompletePage count={correctCount} total={quiz.quests.length} id={quiz.id} title={quiz.title}/>
               }
             </div>
           </div>

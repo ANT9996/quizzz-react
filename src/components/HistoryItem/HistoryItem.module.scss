@@ -1,0 +1,50 @@
+@import "src/styles/colors";
+
+.listElem {
+  position: relative;
+  margin: .5rem 0;
+  border-top: 2px solid $color-dark2-up;
+  border-left: 2px solid $color-dark2-up;
+  border-right: 4px inset $color-dark2-down;
+  border-bottom: 4px inset $color-dark2-down;
+  background-color: $color-dark3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  transition: all 0.3s;
+  & > div {
+    margin: .3rem 0;
+  }
+  &:hover {
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, .3);
+    transform: translate(-2px, -2px);
+  }
+
+  .id {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: .5em;
+  }
+
+  .date {
+    font-size: .7em;
+  }
+
+  .score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-light4;
+
+    img {
+      margin-right: 5px;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

@@ -1,18 +1,21 @@
 import React from 'react';
 import c from './App.module.scss'
 import {Route, Routes} from "react-router-dom";
-import {MainMenu, Catalog, Help, Create, FullQuiz} from "../pages";
+import {MainMenu, Catalog, Help, Create, FullQuiz, History} from "../pages";
 import {Background, GitButton} from "../components";
 import {NotificationContainer} from 'react-notifications';
+import Texture from "../components/Texture/Texture";
 function App() {
   return (
     <div className={c.App}>
       <div className={c.body}>
+        <Texture/>
         <Routes>
           <Route path={'/'} element={<MainMenu/>}/>
           <Route path={'/catalog'} element={<Catalog/>}/>
           <Route path={'/help'} element={<Help/>}/>
           <Route path={'/create'} element={<Create/>}/>
+          <Route path={'/history'} element={<History/>}/>
           <Route path={'/quiz/:id'} element={<FullQuiz/>} />
         </Routes>
       </div>

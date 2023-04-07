@@ -1,0 +1,45 @@
+@import "src/styles/colors";
+
+.history {
+  z-index: 2;
+  width: 100%;
+}
+
+.head {
+  text-shadow: 2px 2px 1px black;
+  position: relative;
+  text-align: center;
+  &:before {
+    position: absolute;
+    left: 0;
+    bottom: -30%;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: white;
+    box-shadow: 2px 2px 1px black;
+  }
+}
+
+.list {
+  padding-right: .5rem;
+  margin: 2rem 0;
+  max-height: 500px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 10px;
+    border-top: 2px solid $color-dark2-up;
+    border-left: 2px solid $color-dark2-up;
+    border-right: 4px inset $color-dark2-down;
+    border-bottom: 4px inset $color-dark2-down;
+    background-color: $color-dark3;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-light4-back;
+    border-top: 2px solid $color-light4-up;
+    border-left: 2px solid $color-light4-up;
+    border-right: 4px inset $color-light4-down;
+    border-bottom: 4px inset $color-light4-down;
+  }
+}
+

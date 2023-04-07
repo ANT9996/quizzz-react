@@ -31,7 +31,7 @@ input {
   input[type="text"] {
     outline: none;
     padding: .3rem 1rem;
-    width: fill-available;
+    width: 100%;
   }
 }
 
@@ -51,7 +51,7 @@ input {
   input[type="text"] {
     outline: none;
     padding: .3rem 1rem;
-    width: fill-available;
+    width: 100%;
   }
 }
 
@@ -86,7 +86,7 @@ label {
     margin-bottom: 0;
     outline: none;
     padding: .3rem 1rem;
-    width: fill-available;
+    width: 100%;
   }
   label {
     padding: 0 1rem;

@@ -21,3 +21,12 @@ export type Quiz = {
   description: string
   quests: Array<Quest>
 }
+
+export type History = {
+  id:string
+  title:string
+  description:string
+  score:Array<number>
+  date:string
+  win:boolean
+}

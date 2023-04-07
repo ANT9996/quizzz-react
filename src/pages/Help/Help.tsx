@@ -14,21 +14,14 @@ const Help = () => {
     const validEmail = email.match(
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     )
-    if (!validEmail) {
-      return false
-    }
-    if (text.length < 15) {
-      return false
-    }
+    if (!validEmail) return false
+    if (text.length < 15) return false
     return true
   }
 
   const onSubmit = () => {
     setDisableFields(true)
-    const params = {
-      email,
-      text,
-    }
+    const params = {email, text}
     sendMail(params)
       .then((r) => {
         console.log(r)
@@ -59,6 +52,7 @@ const Help = () => {
         </div>
         <div className={c.textarea}>
           <textarea
+            autoFocus
             placeholder={"*Текст (от 15 символов)"}
             value={text}
             onChange={(e) => setText(e.target.value)}

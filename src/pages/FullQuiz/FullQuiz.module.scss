@@ -1,11 +1,13 @@
 @import "src/styles/animates";
 
 .FullQuiz {
+  z-index: 2;
   margin-top: 2rem;
   width: 100%;
 }
 
 .head {
+  z-index: 2;
   position: relative;
   display: flex;
 }

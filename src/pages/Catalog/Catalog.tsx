@@ -22,7 +22,7 @@ const Catalog = () => {
 
   const deleteQuiz = async (id:string) => {
     try {
-      await axios.delete(MOCK_URL+'/'+id)
+      await axios.delete(MOCK_URL+id)
       const newList = list.filter(elem => elem.id !== id)
       console.log(newList)
       setList(newList)
@@ -33,7 +33,7 @@ const Catalog = () => {
   return (
     <>
       <ButtonBack/>
-      <List title={'Catalog'}>
+      <List title={'Каталог'}>
         {
           isLoading
             ? [...Array(1)].map((elem, i) => <Skeleton key={i}/>)

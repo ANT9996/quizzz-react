@@ -10,5 +10,22 @@ import ListItem from './ListItem/ListItem'
 import Skeleton from './Skeleton/Skeleton'
 import ProgressBar from "./ProgressBar/ProgressBar";
 import GitButton from "./GitButton/GitButton";
+import ShortDate from "./ShortDate";
+import HistoryItem from "./HistoryItem/HistoryItem";
 
-export {Quest, Answer, List, AboutButton, Background, BackgroundItem, CorrectStatus, ButtonBack, ListItem, Skeleton, ProgressBar, GitButton}
+export {
+  Quest,
+  Answer,
+  List,
+  AboutButton,
+  Background,
+  BackgroundItem,
+  CorrectStatus,
+  ButtonBack,
+  ListItem,
+  Skeleton,
+  ProgressBar,
+  GitButton,
+  HistoryItem,
+  ShortDate
+}
