@@ -1,0 +1,16 @@
+@import "colors";
+.scroll::-webkit-scrollbar {
+  width: 10px;
+  border-top: 2px solid $color-dark2-up;
+  border-left: 2px solid $color-dark2-up;
+  border-right: 4px inset $color-dark2-down;
+  border-bottom: 4px inset $color-dark2-down;
+  background-color: $color-dark3;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background-color: $color-light4-back;
+  border-top: 2px solid $color-light4-up;
+  border-left: 2px solid $color-light4-up;
+  border-right: 4px inset $color-light4-down;
+  border-bottom: 4px inset $color-light4-down;
+}

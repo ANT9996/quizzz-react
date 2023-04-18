@@ -6,6 +6,7 @@ import {Quiz} from "../../types";
 import c from './FullQuiz.module.scss'
 import CompletePage from "../CompletePage/CompletePage";
 import { MOCK_URL } from '../../constants';
+import NavBar from "../../components/NavBar/NavBar";
 const FullQuiz = () => {
   const [quiz, setQuiz] = useState<Quiz>()
   const [correctCount, setCorrectCount] = useState<number>(0)
@@ -15,8 +16,9 @@ const FullQuiz = () => {
   const {id} = useParams()
   const fetchFullQuiz = useCallback(async () => {
     setIsLoading(true)
-    const {data} = await axios.get<Quiz>(MOCK_URL+id)
-    setQuiz(data)
+    const res = await axios.get<Quiz>(MOCK_URL+id)
+    console.log(res)
+    setQuiz(res.data)
     setIsLoading(false)
   },[id])
 
@@ -33,14 +35,16 @@ const FullQuiz = () => {
   }, [fetchFullQuiz])
   return (
     <>
-      <ButtonBack/>
-      <AboutButton description={quiz?.description || ''}/>
+      <NavBar>
+        <ButtonBack text={'Назад'} path={'/catalog'}/>
+        <AboutButton description={quiz?.description || ''}/>
+      </NavBar>
       {
         !isLoading
           ? <div>
             <div className={c.FullQuiz}>
               <div className={c.head}>
-                <h1 className={c.title}>#{quiz?.id} {quiz?.title}</h1>
+                <h1 className={c.title}>#{quiz?._id} {quiz?.title}</h1>
               </div>
               <ProgressBar value={activeQuest} maxLength={(quiz?.quests?.length || 0)}/>
             </div>
@@ -52,7 +56,7 @@ const FullQuiz = () => {
                       <Answer key={i} title={answer.title} correct={answer.correct} showCorrect={showCorrect} id={i} delay={i/10}
                               onClick={(correct)=>onClick(correct)}/>)}
                   </Quest>)
-                : <CompletePage count={correctCount} total={quiz.quests.length} id={quiz.id} title={quiz.title}/>
+                : <CompletePage count={correctCount} total={quiz.quests.length} id={quiz._id} title={quiz.title}/>
               }
             </div>
           </div>

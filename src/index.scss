@@ -17,3 +17,20 @@
   background: rgba(0, 0, 0, 0.2);
   color: white;
 }
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #525162;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+  @media (max-width: 700px) {
+    padding-top: 1rem;
+  }
+}

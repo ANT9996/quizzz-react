@@ -16,17 +16,24 @@ export type Quest = {
 }
 
 export type Quiz = {
-  id: string
+  _id: string
+  author_id: string
   title: string
   description: string
   quests: Array<Quest>
 }
 
 export type History = {
-  id:string
+  _id:string
+  nickname: string
   title:string
   description:string
   score:Array<number>
   date:string
   win:boolean
+}
+
+export type User = {
+  _id: string
+  name: string
 }

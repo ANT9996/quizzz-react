@@ -90,3 +90,9 @@
     border-right: 3px inset $color3;
   }
 }
+
+.disabled {
+  pointer-events: none;
+  user-select: none;
+  opacity: .5!important;
+}

@@ -1,12 +1,16 @@
 import {FC} from "react";
 
 const shortDate:FC<{date:string}> = ({date}) => {
-  const refactored = date.replace('T', ' ').substring(0, date.length - 5)
-  const newDate = refactored.split(' ')
+  const parseDate = new Date(Date.parse(date))
+  const newDate = parseDate.toLocaleDateString()
+  const time = parseDate.toLocaleTimeString().substring(0, parseDate.toLocaleTimeString().length-3)
   return (
       <>
-        <div>{newDate[0]}</div>
-        <div>{newDate[1]}</div>
+        <div>
+          {newDate}
+          <br/>
+          {time}
+        </div>
       </>
       )
 }

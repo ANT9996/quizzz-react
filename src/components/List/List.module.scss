@@ -1,42 +1,26 @@
+@import "src/styles/colors";
 
 .list {
   z-index: 2;
   padding: 1rem;
-  max-height: 700px;
+  max-height: 500px;
   overflow-y: auto;
-  overflow-x: hidden;
   margin-top: 2rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
+  //display: grid;
+  //gap: 1rem;
+  //grid-template-columns: repeat(3, 1fr);
+  //justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   width: 100%;
+  overflow-x: hidden;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (max-width: 560px) {
+  @media (max-width: 800px) {
     grid-template-columns: repeat(1, 1fr);
   }
-
-  &::-webkit-scrollbar {
-    width: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    width: 5px;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
 }
 
-.title {
-  z-index: 2;
-  text-transform: uppercase;
-  font-size: 30px;
-  letter-spacing: 3px;
-  color: white;
-  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.8);
-}

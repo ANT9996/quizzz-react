@@ -8,9 +8,12 @@ export const SEND_SUCCESS = "Письмо успешно отправлено"
 export const SEND_ERROR = "При отправке письма произошла ошибка"
 
 // Data
-export const MOCK_URL = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/Quizs/"
-export const MOCK_URL_HISTORY = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/History"
-
+// export const MOCK_URL = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/Quizs/"
+// export const MOCK_URL_HISTORY = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/History"
+// export const MOCK_URL = "https://quizzz-react-backend.onrender.com/"
+// export const MOCK_URL_HISTORY = "https://quizzz-react-backend.onrender.com/history"
+export const MOCK_URL = 'http://localhost:5000/quiz/'
+export const MOCK_URL_HISTORY = 'http://localhost:5000/'+"history"
 // Create page
 
 export const ANSWER_TRUE = 'Правильный'

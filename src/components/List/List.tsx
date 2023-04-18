@@ -1,18 +1,14 @@
-import React, {FC, PropsWithChildren, ReactNode} from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import c from  './List.module.scss'
+import '../../styles/scroll.scss'
 
-interface ListTypes {
-  title: string
-  children: ReactNode
-}
+const List:FC<PropsWithChildren> = (p) => {
 
-const List:FC<PropsWithChildren<ListTypes>> = (p) => {
   return (
     <>
-    <h2 className={c.title}>{p.title}</h2>
-    <div className={c.list}>
-      {p.children}
-    </div>
+      <div className={`${c.list} scroll`}>
+        {p.children}
+      </div>
     </>
   );
 };

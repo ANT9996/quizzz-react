@@ -1,0 +1,79 @@
+@import "src/styles/colors";
+
+.AuthPage {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.head {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: 1rem;
+}
+
+.input {
+  outline: none;
+  width: 100%;
+  padding: .5rem;
+  margin: .3rem 0;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.44);
+  transition: all .3s;
+  letter-spacing: 5px;
+  font-weight: bolder;
+  &:hover {
+    transform: translate(0, -1px);
+    box-shadow: 3px 4px 1px rgba(0, 0, 0, .7);
+  }
+  &:focus {
+    transform: translate(0, -2px);
+    box-shadow: 3px 5px 1px rgba(0, 0, 0, .7);
+  }
+}
+
+.buttons {
+  margin-top: .5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  cursor: pointer;
+  width: 49%;
+  min-width: max-content;
+  padding: .5rem;
+  transition: all .3s;
+  font-size: .9em;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.44);
+  &:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, .7);
+  }
+  &:active {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 1px rgba(0, 0, 0, .7);
+  }
+
+  &:nth-child(1) {
+    background-color: $color-success;
+    border-top: 2px solid $color-success-up;
+    border-left: 2px solid$color-success-up;
+    border-right: 3px inset $color-success-down;
+    border-bottom: 3px inset $color-success-down;
+  }
+
+  &:nth-child(2) {
+    background-color: $color-light4;
+    border-top: 2px solid $color-light4-up;
+    border-left: 2px solid$color-light4-up;
+    border-right: 3px inset $color-light4-down;
+    border-bottom: 3px inset $color-light4-down;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+}

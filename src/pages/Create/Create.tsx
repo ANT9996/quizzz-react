@@ -17,6 +17,9 @@ import {validAnswer, validQuest, validQuiz} from "../../helpers";
 import c from './Create.module.scss'
 import axios from "axios";
 import {NotificationManager} from 'react-notifications'
+import NavBar from "../../components/NavBar/NavBar";
+import ProfileCard from "../../components/ProfileCard/ProfileCard";
+import {useStore} from "../../store";
 
 export interface lAnswer {
   title: string,
@@ -30,12 +33,14 @@ export interface lQuest {
 }
 
 export interface lQuiz {
+  author_id: string
   title: string
   description: string
   quests: Array<lQuest>
 }
 
 const Create = () => {
+  const {user} = useStore()
   // хуки для создания массива с ответами
   const checkRef = useRef<HTMLInputElement>(null)
   const answerRef = useRef<HTMLInputElement>(null)
@@ -102,20 +107,31 @@ const Create = () => {
 
   const addQuiz = async () => {
     if (!validQuiz(quests, inputTitleQuiz, inputDescQuiz)) return
-    if (quests) {
-      setQuiz({title: inputTitleQuiz, description: inputDescQuiz, quests})
-      await axios.post(MOCK_URL, {title: inputTitleQuiz, description: inputDescQuiz, quests})
+    if (quests && user) {
+      const quiz = {
+        author_id: user._id,
+        author_name: user.name,
+        title: inputTitleQuiz,
+        description: inputDescQuiz,
+        quests
+      }
+
+      setQuiz(quiz)
+      await axios.post(MOCK_URL, quiz)
         .then(r => console.log(r))
         .catch(e => console.error(e))
       NotificationManager.success(ADD_QUIZ_SUCCESS)
       clearQuiz()
     }
   }
-const description = [HOW_TO_CREATE_QUIZ_0, HOW_TO_CREATE_QUIZ_1, HOW_TO_CREATE_QUIZ_2, HOW_TO_CREATE_QUIZ_3, HOW_TO_CREATE_QUIZ_4]
+  const description = [HOW_TO_CREATE_QUIZ_0, HOW_TO_CREATE_QUIZ_1, HOW_TO_CREATE_QUIZ_2, HOW_TO_CREATE_QUIZ_3, HOW_TO_CREATE_QUIZ_4]
   return (
     <>
-      <ButtonBack/>
-      <AboutButton description={description} name={'Как создать?'}/>
+      <NavBar>
+        <ButtonBack/>
+        <AboutButton description={description} name={'Как создать?'}/>
+        <ProfileCard/>
+      </NavBar>
       <div className={c.create}>
         <h1 className={c.head}>Создание квиза</h1>
         <div className={c.form}>

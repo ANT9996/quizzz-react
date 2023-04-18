@@ -5,6 +5,7 @@ import sadImage from '../../assets/img/sad1.gif'
 import axios from "axios";
 import {MOCK_URL_HISTORY} from "../../constants";
 import {Link} from "react-router-dom";
+import {useStore} from "../../store";
 
 interface Complete {
   count:number
@@ -15,9 +16,10 @@ interface Complete {
 
 const CompletePage:FC<Complete> = (p) => {
   const percent = p.count/p.total*100
-
+  const {user} = useStore()
   const saveResult = async () => {
     const elem = {
+      nickname: user?.name,
       title: p.title,
       score: [p.count, p.total],
       date: new Date(),
@@ -25,11 +27,11 @@ const CompletePage:FC<Complete> = (p) => {
     }
     return await axios.post(MOCK_URL_HISTORY, elem)
   }
+
   useEffect(() => {
-    saveResult().then((r) => {
-      console.log(r)
-    })
+    saveResult().then((r) => {console.log(r.data)})
   }, [])
+
   return (
     <div className={c.completePage}>
       <div className={c.image}>

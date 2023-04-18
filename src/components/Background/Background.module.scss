@@ -2,10 +2,10 @@
 @import "src/styles/animates";
 
 .background {
+  height: 150%;
   overflow: hidden;
   position: absolute;
   width: 100%;
-  height: 100%;
 
   &>div {
     border-top: 3px solid $color-light4-up;

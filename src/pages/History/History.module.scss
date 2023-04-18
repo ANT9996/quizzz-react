@@ -9,6 +9,8 @@
   text-shadow: 2px 2px 1px black;
   position: relative;
   text-align: center;
+  margin: 1rem 0;
+  font-size: 2em;
   &:before {
     position: absolute;
     left: 0;
@@ -26,20 +28,5 @@
   margin: 2rem 0;
   max-height: 500px;
   overflow-y: auto;
-  &::-webkit-scrollbar {
-    width: 10px;
-    border-top: 2px solid $color-dark2-up;
-    border-left: 2px solid $color-dark2-up;
-    border-right: 4px inset $color-dark2-down;
-    border-bottom: 4px inset $color-dark2-down;
-    background-color: $color-dark3;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: $color-light4-back;
-    border-top: 2px solid $color-light4-up;
-    border-left: 2px solid $color-light4-up;
-    border-right: 4px inset $color-light4-down;
-    border-bottom: 4px inset $color-light4-down;
-  }
 }
 

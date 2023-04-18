@@ -1,0 +1,36 @@
+@import "src/styles/colors";
+.searchInput {
+  z-index: 2;
+  //margin: 1rem 0;
+  width: 60%;
+  padding: .5rem;
+  outline: none;
+  transition: all .2s;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.62);
+  &:focus {
+    width: 95%;
+    color: white;
+    border-top: 2px solid $color-dark2-up;
+    border-left: 2px solid $color-dark2-up;
+    border-right: 4px inset $color-dark2-down;
+    border-bottom: 4px inset $color-dark2-down;
+    background-color: $color-dark3;
+    &::placeholder {
+      color: white;
+    }
+  }
+  @media (max-width: 500px) {
+    width: 90%;
+    padding: .3rem;
+  }
+}
+
+.title {
+  margin: 2rem 0 1rem 0;
+  z-index: 2;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  letter-spacing: 3px;
+  color: white;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.8);
+}
