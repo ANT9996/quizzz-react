@@ -11,8 +11,8 @@ export const SEND_ERROR = "При отправке письма произошл
 // export const MOCK_URL = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/Quizs/"
 // export const MOCK_URL_HISTORY = "https://63e7d8a5ac3920ad5be4f661.mockapi.io/History"
 
- export const MOCK_URL = "https://quizzz-react-backend.onrender.com/quiz"
- export const MOCK_URL_HISTORY = "https://quizzz-react-backend.onrender.com/history"
+ export const MOCK_URL = "https://quizzz-react-backend.onrender.com/quiz/"
+ export const MOCK_URL_HISTORY = "https://quizzz-react-backend.onrender.com/history/"
 
 //export const MOCK_URL = 'http://localhost:5000/quiz/'
 //export const MOCK_URL_HISTORY = 'http://localhost:5000/'+"history"
