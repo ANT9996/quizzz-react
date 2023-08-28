@@ -43,6 +43,7 @@ const Help = () => {
           <ProfileCard/>
         </NavBar>
         <div className={c.form_block}>
+          <h1>(Письма отключены)</h1>
           <div className={c.form}>
             <h3>Напишите что-нибудь...</h3>
             <div className={c.inputEmail}>
