@@ -21,7 +21,6 @@ const App:FC = () => {
 
   return (
     <div className={c.App}>
-      <h1 style={{color: "white", position: "absolute", left: 0, bottom: '50px', zIndex: 3, background: "gray", padding: '1rem', opacity: .6, userSelect: "none", pointerEvents: "none"}}>В разработке</h1>
       <div className={c.body}>
         <Texture/>
         <Routes>
