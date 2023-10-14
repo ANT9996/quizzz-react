@@ -35,6 +35,7 @@ const App:FC = () => {
         </Routes>
       </div>
       <GitButton/>
+      <div style={{width: 500}}>Backend находится на бесплатной площадке, что-бы запросы доходили до сервера нужно подождать пока он запустится (сервер автоматически отключается если нет запросов)</div>
       <Background/>
       <NotificationContainer/>
     </div>
